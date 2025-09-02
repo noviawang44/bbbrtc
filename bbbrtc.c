@@ -175,7 +175,7 @@ unsigned gettime( unsigned char *base, unsigned char time_offset ) {
             time.tm_year += 100;    // Assume we are in the 2000's not 1900's after 1970 (RTC only has 2 year digits). Breaks in 2070. Come find me and I'll fix it then.
     }
 
-    time_t readtime = mktime(&time);
+    time_t readtime = timegm(&time);
 
     //diagprint( "read:%s\n", ctime(&readtime) );
 
